@@ -60,7 +60,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/,
         use: [
           "style-loader",
           MiniCssExtractPlugin.loader,
@@ -76,7 +76,10 @@ module.exports = {
           },
           {
             loader: "sass-loader",
-            options: { sourceMap: true },
+            options: {
+              prependData: `@import "${PATHS.src}/scss/main";`,
+              sourceMap: true,
+            },
           },
         ],
       },
